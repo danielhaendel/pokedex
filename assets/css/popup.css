@@ -1,0 +1,98 @@
+.overlay {
+    position: fixed; /* Positioniert das Overlay relativ zur nächsten Position */
+    top: 0; /* Platziert das Overlay oben am Bildschirmrand */
+    left: 0; /* Platziert das Overlay links am Bildschirmrand */
+    height: 100vh; /* Setzt die Höhe des Overlays auf die gesamte Bildschirmhöhe */
+    width: 100vw; /* Setzt die Breite des Overlays auf die gesamte Bildschirmbreite */
+    z-index: 10000; /* Setzt das Overlay über andere Elemente */
+    background-color: rgba(0, 0, 0, 0.56); /* Halbtransparenter schwarzer Hintergrund */
+    display: flex; /* Nutzt Flexbox, um Inhalte zentriert auszurichten */
+    justify-content: center; /* Zentriert horizontal */
+    align-items: center; /* Zentriert vertikal */
+}
+
+.more-infos {
+    transition: all .5s ease-in;
+    background-color: #0c2c3b;
+    color: white;
+    min-height: 400px;
+}
+
+.spinner-center {
+    height: 100%;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.pad-15 {
+    padding: 15px !important;
+}
+
+.x-btn{
+    cursor: pointer;
+}
+
+.pokemon-popup-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0 10px 0;
+}
+
+.card-img-top {
+    width: auto;
+    height: 15%;
+    max-height: 11.5em;
+    filter: drop-shadow(9px 9px 6px rgba(0, 0, 0, 0.5));
+}
+
+.img-center {
+    display: flex;
+    justify-content: center;
+}
+
+.tab-bar {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 33.3%;
+    background-color: #082129;
+    text-align: center;
+}
+.tab:hover {
+    background-color: rgba(8, 33, 41, 0.38);
+}
+
+.tab-active {
+    border-bottom: 3px solid red;
+}
+
+.tab-content {
+    display: flex;
+    gap: 25px;
+    padding: 20px;
+}
+
+.tab-content h2 {
+    font-size: 17px;
+}
+
+.height-h2 {
+    min-height: 20px;
+    min-width: 135px;
+}
+

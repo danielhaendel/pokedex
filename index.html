@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/pokedex.css">
+    <link rel="stylesheet" href="assets/css/types.css">
+    <link rel="stylesheet" href="assets/css/popup.css">
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/renderHTML.js"></script>
+</head>
+<body onload="onload()">
+<header>
+    <div class="nav-bar">
+        <h1>Pokedex</h1>
+        <div>Searchbar</div>
+    </div>
+</header>
+<main>
+    <div class="pokedex" id="pokedex">
+        <div class="text-center overlay">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <div class="load-more" id="load-more"></div>
+    <div id="overlay">
+        <div class="overlay d-none" id="poke-popup" onclick="togglePopUp(0)">
+            <div class="card more-infos" id="more-infos" style="width: 24rem;" onclick="bubblingPrevention(event)">
+                <div class="text-center spinner-center overlay">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <p>&copy; 2024 Pokedex</p>
+</footer>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

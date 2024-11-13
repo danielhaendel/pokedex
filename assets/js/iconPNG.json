@@ -1,0 +1,22 @@
+{
+  "types": {
+    "bug": "Pokemon_Type_Icon_Bug.png",
+    "dark": "Pokemon_Type_Icon_Dark.png",
+    "dragon": "Pokemon_Type_Icon_Dragon.png",
+    "electric": "Pokemon_Type_Icon_Electric.png",
+    "fairy": "Pokemon_Type_Icon_Fairy.png",
+    "fighting": "Pokemon_Type_Icon_Fighting.png",
+    "fire": "Pokemon_Type_Icon_Fire.png",
+    "flying": "Pokemon_Type_Icon_Flying.png",
+    "ghost": "Pokemon_Type_Icon_Ghost.png",
+    "grass": "Pokemon_Type_Icon_Grass.png",
+    "ground": "Pokemon_Type_Icon_Ground.png",
+    "ice": "Pokemon_Type_Icon_Ice.png",
+    "normal": "Pokemon_Type_Icon_Normal.png",
+    "poison": "Pokemon_Type_Icon_Poison.png",
+    "psychic": "Pokemon_Type_Icon_Psychic.png",
+    "rock": "Pokemon_Type_Icon_Rock.png",
+    "steel": "Pokemon_Type_Icon_Steel.png",
+    "water": "Pokemon_Type_Icon_Water.png"
+  }
+}

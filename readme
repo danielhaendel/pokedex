@@ -1,0 +1,16 @@
+API Link für Pokemon:
+https://pokeapi.co/api/v2/pokemon
+
+API Link für Pokemon mit ID:
+https://pokeapi.co/api/v2/pokemon/1
+1 = ID des Pokemon (beginnt bei 1, nicht bei 0)
+
+
+API Link für Mehrere Pokemon:
+https://pokeapi.co/api/v2/pokemon?limit=5&offset=10
+Um nur einen bestimmten teil der Pokemon zu laden.
+Limit = Anzahl der Pokemon
+Offset = Anzahl der Pokemon die übersprungen werden sollen:
+    0 = 1. Pokemon
+    10 = 11. Pokemon
+    usw.

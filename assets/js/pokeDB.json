@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "name": "bulbasaur",
+    "nameUpper": "Bulbasaur",
+    "type": "grass",
+    "types": ["grass", "poison"],
+    "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
+  }
+]
