@@ -15,11 +15,33 @@
 <header>
     <div class="nav-bar">
         <h1>Pokedex</h1>
-        <div>Searchbar</div>
+        <form class="form-inline">
+            <input
+                    id="search-bar"
+                    class="form-control mr-sm-2"
+                    type="text"
+                    placeholder="Loading..."
+                    aria-label="Search"
+                    onkeyup="searchInput(event)"
+                    disabled
+            >
+        </form>
     </div>
 </header>
 <main>
+    <div class="d-none" style="width: 100%; display: flex; justify-content: center" id="noPokemon">
+        <div class="alert alert-danger" role="alert" style="margin-top: 100px; width: 30%">
+            Keine Pokémon gefunden
+        </div>
+    </div>
     <div class="pokedex" id="pokedex">
+        <div class="text-center overlay">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+    <div class="pokedex d-none" id="search-pokedex">
         <div class="text-center overlay">
             <div class="spinner-border" role="status">
                 <span class="visually-hidden">Loading...</span>

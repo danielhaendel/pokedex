@@ -30,9 +30,10 @@ function addLoadMoreButton() {
     `;
 }
 
-function renderPopUp(data, pokeName, bgColor) {
-    console.log("ich bin in renderPopUp");
-    let abilities ="";
+async function renderPopUp(data, pokeName, bgColor) {
+    let abilities = "";
+    let evoData = await getEvolutionChain(data.id)
+    let evoHTML = renderEvoChain(evoData);
     for (let i = 0; i < data.abilities.length; i++) {
         if (i === data.abilities.length - 1) {
             abilities += data.abilities[i].ability.name;
@@ -67,43 +68,70 @@ function renderPopUp(data, pokeName, bgColor) {
             </div>
         </div>
         <div id="tab-content-stats" class="tab-content d-none">
-            <div class="info-text">
-                <h2 class="height-h2">HP:</h2>
-                <h2 class="height-h2">Attack:</h2>
-                <h2 class="height-h2">Defense:</h2>
-                <h2 class="height-h2">Special-Attack:</h2>
-                <h2 class="height-h2">Special-Defense:</h2>
-                <h2 class="height-h2">Speed:</h2>
-            </div>
-            <div class="info-text">
-                <h2>${data.stats[0].base_stat}</h2>
-                <h2>${data.stats[1].base_stat}</h2>
-                <h2>${data.stats[2].base_stat}</h2>
-                <h2>${data.stats[3].base_stat}</h2>
-                <h2>${data.stats[4].base_stat}</h2>
-                <h2>${data.stats[5].base_stat}</h2>
+            <div class="info">
+                <div class="stats">
+                    <h2 class="height-h2">HP:</h2>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: ${data.stats[0].base_stat}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="stats">
+                    <h2 class="height-h2">Attack:</h2>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: ${data.stats[1].base_stat}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="stats">
+                    <h2 class="height-h2">Defense:</h2>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: ${data.stats[2].base_stat}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="stats">
+                    <h2 class="height-h2">Special-Attack:</h2>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: ${data.stats[3].base_stat}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="stats">
+                    <h2 class="height-h2">Special-Defense:</h2>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: ${data.stats[4].base_stat}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="stats">
+                    <h2 class="height-h2">Speed:</h2>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: ${data.stats[5].base_stat}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="tab-content-evo" class="tab-content d-none">
-            <div class="info-text">
-                <h2>HP:</h2>
-                <h2>Attack:</h2>
-                <h2>Defense:</h2>
-                <h2>Special-Attack:</h2>
-                <h2>Special-Defense:</h2>
-                <h2>Speed:</h2>
-            </div>
-            <div class="info-text">
-                <h2>${data.stats[0].base_stat}</h2>
-                <h2>${data.stats[1].base_stat}</h2>
-                <h2>${data.stats[2].base_stat}</h2>
-                <h2>${data.stats[3].base_stat}</h2>
-                <h2>${data.stats[4].base_stat}</h2>
-                <h2>${data.stats[5].base_stat}</h2>
+            <div class="evo-chain">
+                ${evoHTML}
             </div>
         </div>
     `;
     document.getElementById("more-infos").innerHTML = html;
+}
+
+function renderEvoChain(data) {
+    let html = "";
+    let arrow = "<i class='arrow-right-icon'></i>";
+    for (let i = 0; i < data.length; i++) {
+        if (i === data.length - 1) {
+            arrow = "";
+        }
+        html += `
+            <div class="evo">
+                <img src="${data[i].svg}" alt="${data[i].name}-image"/>
+                <h2>${data[i].upperName}</h2>
+            </div>
+            ${arrow}
+        `;
+    }
+    return html;
 }
 
 function closePopUp() {
@@ -115,4 +143,24 @@ function closePopUp() {
                     </div>
                 </div>
                 `;
+}
+
+function renderError(value) {
+    if (value === 0){
+        document.getElementById("noPokemon").classList.add("d-none");
+        document.getElementById("pokedex").classList.remove("d-none");
+        document.getElementById("load-more").classList.remove("d-none");
+        document.getElementById("search-pokedex").classList.add("d-none");
+    } else {
+        document.getElementById("noPokemon").classList.remove("d-none");
+        document.getElementById("pokedex").classList.add("d-none");
+        document.getElementById("load-more").classList.add("d-none");
+        document.getElementById("search-pokedex").classList.add("d-none");
+    }
+}
+
+function showSearchResults() {
+    document.getElementById("search-pokedex").classList.remove("d-none");
+    document.getElementById("pokedex").classList.add("d-none");
+    document.getElementById("load-more").classList.add("d-none");
 }

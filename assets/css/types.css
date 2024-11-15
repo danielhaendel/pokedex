@@ -149,3 +149,9 @@
 .flying-icon {
     background-image: url('../icons/Pokemon_Type_Icon_Flying.svg');
 }
+
+.arrow-right-icon {
+    background-image: url('../icons/arrow-right.svg');
+    width: 20px;
+    height: 20px;
+}
